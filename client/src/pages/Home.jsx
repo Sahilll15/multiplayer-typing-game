@@ -29,35 +29,43 @@ const Home = () => {
 
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded shadow-md w-96">
-                <h2 className="text-2xl font-semibold mb-6">Join Room</h2>
+        <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('https://w0.peakpx.com/wallpaper/132/903/HD-wallpaper-pixel-game-art-background-2d-pixel-art.jpg')" }}>
+      <div className="max-w-md w-full bg-white p-8 rounded-md shadow-md">
+        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Enter Details To Start</h2>
 
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label htmlFor="username" className="block text-gray-600 text-sm font-medium mb-2">Username</label>
-                        <input type="text" id="username" name="username" className="w-full px-3 py-2 border focus:outline-none focus:border-blue-500 rounded-md"
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <div>
+           
+            <label htmlFor="username" className="block text-gray-600 text-sm font-medium mb-2">Username</label>
+            <input type="text" id="username" name="username" className="w-full px-3 py-2 border focus:outline-none focus:border-blue-500 rounded-md"
 
                             onChange={(e) => {
                                 setUserName(e.target.value);
                             }}
                         />
-                    </div>
+          </div>
 
-                    <div className="mb-6">
-                        <label htmlFor="roomCode" className="block text-gray-600 text-sm font-medium mb-2">Room Code</label>
-                        <input type="text" id="roomCode" name="roomCode" className="w-full px-3 py-2 border focus:outline-none focus:border-blue-500 rounded-md"
+          <div>
+          <label htmlFor="username" className="block text-gray-600 text-sm font-medium mb-2">Room Code</label>
+            <label htmlFor="password" className="sr-only">
+              Room Code
+            </label>
+            <div className="relative">
+            <input type="text" id="roomCode" name="roomCode" className="w-full px-3 py-2 border focus:outline-none focus:border-blue-500 rounded-md"
                             onChange={(e) => {
                                 setRoomCode(e.target.value);
                             }}
                         />
-                    </div>
-
-
-                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Join</button>
-                </form>
+             
             </div>
-        </div>
+          </div>
+
+          
+
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Join</button>
+        </form>
+      </div>
+    </div>
     )
 }
 
