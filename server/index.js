@@ -14,17 +14,13 @@ const io = new Server(server, {
 })
 
 const ArrayOfContent = [
-    "This is sahil chalke",
-    'This is chikitsa nijai ',
-    'this is sanjay chalke',
-    'this is chalke family',
-    'this is prachi chalke'
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus egestas tellus."
 ]
 
 const roomUsers = {};
 const users = []
 
-const solution = [];
+let solution = [];
 
 io.on('connection', (socket) => {
     console.log('a user connected', socket.id);

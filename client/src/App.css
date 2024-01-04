@@ -24,6 +24,163 @@
   color: white;
 }
 
+
+/* Winner.module.css */
+
+.notification {
+  position: relative;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.star svg {
+  width: 100px;
+  height: 100px;
+}
+
+.star {
+  position: absolute;
+}
+
+.star1 {
+  top: -85px;
+  left: 0;
+  animation: animate1 5s forwards infinite ease-in-out;
+}
+
+.star2 {
+  top: -100px;
+  left: 50%;
+  transform: translate(-50%);
+  animation: animate2 5s forwards infinite ease-in-out;
+}
+
+.star3 {
+  top: -85px;
+  left: 100%;
+  transform: translateX(-100%) rotate(15deg);
+  animation: animate3 5s forwards infinite ease-in-out;
+}
+
+.ribbon {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #CC014D;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+.ribbon::before,
+.ribbon::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  border: 25px solid #DB0F5A;
+  z-index: -1;
+}
+
+.ribbon::before {
+  left: -30px;
+  border-left-color: transparent;
+}
+
+.ribbon::after {
+  right: -30px;
+  border-right-color: transparent;
+}
+
+.ribbon .ribbonContent:before,
+.ribbon .ribbonContent:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  bottom: -20px;
+}
+
+.ribbon .ribbonContent:before {
+  left: 0;
+  border-width: 0 20px 20px 0;
+  border-color: transparent #6B043A transparent transparent;
+}
+
+.ribbon .ribbonContent:after {
+  right: 0;
+  border-width: 20px 20px 0 0;
+  border-color: #6B043A transparent transparent transparent;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: rotate(-15deg) translateY(0);
+  }
+
+  25% {
+    transform: rotate(-15deg) translateY(10px);
+  }
+
+  50% {
+    transform: rotate(-15deg) translateY(0px);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translate(-50%) translateY(0);
+  }
+
+  25% {
+    transform: translate(-50%) translateY(10px);
+  }
+
+  50% {
+    transform: translate(-50%) translateY(0px) scale(1);
+  }
+
+  75% {
+    transform: translate(-50%) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-50%) scale(1);
+  }
+}
+
+@keyframes animate3 {
+  0% {
+    transform: translateX(-100%) translateY(0) rotate(15deg);
+  }
+
+  25% {
+    transform: translateX(-100%) translateY(10px) rotate(15deg);
+  }
+
+  50% {
+    transform: translateX(-100%) translateY(0) rotate(15deg);
+  }
+
+  75% {
+    transform: translateX(-100%) rotate(5deg);
+  }
+
+  100% {
+    transform: translateX(-100%) rotate(15deg);
+  }
+}
+
+
 .App-link {
   color: #61dafb;
 }

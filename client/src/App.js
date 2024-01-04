@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import Game from './pages/Game';
 import Home from './pages/Home';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { socket } = useSocket();
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <BrowserRouter>
+     <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/room/:username/:roomCode" element={<Game />} />
