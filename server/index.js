@@ -14,7 +14,7 @@ const io = new Server(server, {
 })
 
 const ArrayOfContent = [
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus egestas tellus."
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus egestas tellus."
 ]
 
 const roomUsers = {};
@@ -73,11 +73,7 @@ io.on('connection', (socket) => {
 
         socket.on('game:submit', (data) => {
             solution.push(data);
-
-
-
             console.log(solution);
-
             if (solution.length === 2) {
                 let winner = '';
                 if (solution[0].currentTime > solution[1].currentTime) {
@@ -94,6 +90,7 @@ io.on('connection', (socket) => {
                 }
 
                 io.to(roomCode).emit('game:winner', winner);
+                roomUsers[roomCode] = [];
                 solution = [];
             }
         })
