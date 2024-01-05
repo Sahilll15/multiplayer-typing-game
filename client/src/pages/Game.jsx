@@ -49,6 +49,8 @@ const Game = () => {
 
   return (
     <div className="p-10 ">
+
+
       <div className="p-10">
         <div className="font-bold flex justify-center items-center text-6xl  text-black ">
           Welcome, {username}
