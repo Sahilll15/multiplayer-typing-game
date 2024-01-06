@@ -13,9 +13,24 @@ const io = new Server(server, {
     }
 })
 
-const ArrayOfContent = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus egestas tellus."
-]
+
+const content = "Sahil is great coder and, he the is, lmao RIP english this auto  generated ok was typing speed test. You can win or sky was the cake.";
+
+const wordsArray = content.match(/\b\w+\b/g);
+
+const filteredWords = wordsArray.filter(word => word.length > 0);
+
+for (let i = filteredWords.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [filteredWords[i], filteredWords[j]] = [filteredWords[j], filteredWords[i]];
+}
+
+const randomWords = filteredWords.slice(0, 10).join(' ');
+
+
+
+
+
 
 const roomUsers = {};
 const users = []
@@ -65,10 +80,9 @@ io.on('connection', (socket) => {
         socket.emit('game:joined', data);
         io.to(roomCode).emit('game:joined', data);
 
-        if (roomUsers[roomCode].length === 2) {
-            const randomIndex = Math.floor(Math.random() * ArrayOfContent.length);
-            io.to(roomCode).emit('game:start', ArrayOfContent[randomIndex]);
-        }
+        if (roomUsers[roomCode]?.length === 2) {
+            io.to(roomCode).emit('game:start', randomWords);
+          }
 
 
         socket.on('game:submit', (data) => {

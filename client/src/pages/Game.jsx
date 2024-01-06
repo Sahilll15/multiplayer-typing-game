@@ -57,8 +57,9 @@ const Game = () => {
         </div>
 
         {waiting ? (
-          <div className="flex justify-center items-center text-6xl bg-white text-black">
-            Gathering fellow challengers. Hold tight!
+          <div className="flex justify-center text-2xl text-black">
+            Waiting for other players to join...
+
           </div>
         ) : (
           <div
