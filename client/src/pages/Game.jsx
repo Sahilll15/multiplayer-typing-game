@@ -41,19 +41,25 @@ const Game = () => {
     socket.on("game:winner", (winner) => {
       setWinner(true);
       toast.success(`Winner is ${winner}`);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 5000)
     });
   }, [socket]);
 
   return (
     <div className="p-10 ">
+
+
       <div className="p-10">
-        <div className="font-bold flex justify-center items-center text-2xl text-red-500">
-          {/* Welcome, {username} */}
+        <div className="font-bold flex justify-center items-center text-6xl  text-black ">
+          Welcome, {username}
         </div>
 
         {waiting ? (
           <div className="flex justify-center text-2xl text-black">
             Waiting for other players to join...
+
           </div>
         ) : (
           <div
@@ -85,14 +91,12 @@ const Game = () => {
                 </div>
 
                 <div class="flex mt-12">
-                  <span class="text-sm  border-2 h-16 rounded-l px-4 py-2 bg-gray-300 whitespace-no-wrap">
-                    Label:
-                  </span>
-                  <input
-                     onChange={(e) => setTypedSentence(e.target.value)}
-                     value={typedSentence}
+
+                  <textarea
+                    onChange={(e) => setTypedSentence(e.target.value)}
+                    value={typedSentence}
                     name="typedSentence"
-                    className=" border-2 rounded-r px-4 py-2 w-full"
+                    className=" border-4 rounded-lg px-4 py-2 w-full  h-20 "
                     type="text"
                     placeholder="Write something here..."
                   />
@@ -121,7 +125,7 @@ const Game = () => {
         ) : null}
         <div>
         </div>
-      
+
       </div>
     </div>
   );

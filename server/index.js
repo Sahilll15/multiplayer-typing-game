@@ -13,24 +13,22 @@ const io = new Server(server, {
     }
 })
 
+
 const content = "Sahil is great coder and, he the is, lmao RIP english this auto  generated ok was typing speed test. You can win or sky was the cake.";
 
-// Split the content into words using spaces and punctuation
 const wordsArray = content.match(/\b\w+\b/g);
 
-// Filter out empty strings
 const filteredWords = wordsArray.filter(word => word.length > 0);
 
-// Shuffle the array to get a random order
 for (let i = filteredWords.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
   [filteredWords[i], filteredWords[j]] = [filteredWords[j], filteredWords[i]];
 }
 
-// Take the first 10 words from the shuffled array
 const randomWords = filteredWords.slice(0, 10).join(' ');
 
-// console.log(randomWords);
+
+
 
 
 
@@ -89,11 +87,7 @@ io.on('connection', (socket) => {
 
         socket.on('game:submit', (data) => {
             solution.push(data);
-
-
-
             console.log(solution);
-
             if (solution.length === 2) {
                 let winner = '';
                 if (solution[0].currentTime > solution[1].currentTime) {
@@ -110,6 +104,7 @@ io.on('connection', (socket) => {
                 }
 
                 io.to(roomCode).emit('game:winner', winner);
+                roomUsers[roomCode] = [];
                 solution = [];
             }
         })
