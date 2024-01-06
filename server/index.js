@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: '*',
+        origin: 'https://multiplayer-typing-game-s2bo.vercel.app/',
         methods: ['GET', 'POST']
     }
 })
