@@ -12,7 +12,7 @@ const useSocket = () => {
 
 const SocketProvider = ({ children }) => {
 
-    const socket = io('http://localhost:4000');
+    const socket = io('https://multiplayer-game-63zq.onrender.com');
 
     return (
         <SocketContext.Provider value={{ socket }}>
