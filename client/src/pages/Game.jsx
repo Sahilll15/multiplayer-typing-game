@@ -52,7 +52,7 @@ const Game = () => {
         </div>
 
         {waiting ? (
-          <div className="flex justify-center text-2xl text-white">
+          <div className="flex justify-center text-2xl text-black">
             Waiting for other players to join...
           </div>
         ) : (
